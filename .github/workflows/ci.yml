@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install
+        run: |
+          pip install -r requirements-dev.txt
+          pip install strands-agents bedrock-agentcore
+          python -m playwright install --with-deps chromium
+      - name: Unit, API and AWS-wiring tests
+        run: pytest -q -m "not e2e"
+      - name: Gold-set evaluation (PRD metrics)
+        run: python -m cds.eval.harness
+      - name: Browser tests
+        run: pytest -q -m e2e
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: screenshots
+          path: test-results/screenshots

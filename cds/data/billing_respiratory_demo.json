@@ -1,0 +1,744 @@
+{
+  "source": {
+    "title": "Respiratory care fee schedule (demo)",
+    "payer": "Modeled on Washington State HCA respiratory care billing guide format",
+    "extracted": "2025-01-05",
+    "note": "A4216 and A4217 values come from the aws-samples README. All other fees, limits and prior authorization rules are SYNTHETIC demo values for teaching. Load the real HCA fee schedule with infra/ingest_billing.py before any real use."
+  },
+  "care_plans": {
+    "copd": {
+      "label": "COPD, home nebulizer and oxygen",
+      "supplies": [
+        [
+          "E0570",
+          1
+        ],
+        [
+          "A7003",
+          2
+        ],
+        [
+          "A7015",
+          2
+        ],
+        [
+          "A4216",
+          60
+        ],
+        [
+          "E1390",
+          1
+        ],
+        [
+          "E0431",
+          1
+        ],
+        [
+          "A4615",
+          2
+        ],
+        [
+          "A4616",
+          25
+        ]
+      ]
+    },
+    "asthma": {
+      "label": "Asthma, home nebulizer and spacer",
+      "supplies": [
+        [
+          "E0570",
+          1
+        ],
+        [
+          "A7003",
+          2
+        ],
+        [
+          "A7015",
+          2
+        ],
+        [
+          "A4216",
+          30
+        ],
+        [
+          "A4627",
+          1
+        ]
+      ]
+    },
+    "sleep_apnea": {
+      "label": "Obstructive sleep apnea, CPAP",
+      "supplies": [
+        [
+          "E0601",
+          1
+        ],
+        [
+          "E0562",
+          1
+        ],
+        [
+          "A7034",
+          1
+        ],
+        [
+          "A7035",
+          1
+        ],
+        [
+          "A7037",
+          1
+        ],
+        [
+          "A7038",
+          2
+        ]
+      ]
+    },
+    "tracheostomy": {
+      "label": "Tracheostomy home care",
+      "supplies": [
+        [
+          "E0600",
+          1
+        ],
+        [
+          "A4624",
+          90
+        ],
+        [
+          "A7520",
+          1
+        ],
+        [
+          "A4217",
+          30
+        ]
+      ]
+    }
+  },
+  "items": [
+    {
+      "code": "A4216",
+      "description": "Sterile water, metered dose dispenser",
+      "fee_nonrural": 0.41,
+      "fee_rural": 0.41,
+      "unit": "each",
+      "coverage": "Limited",
+      "limit": {
+        "quantity": 100,
+        "days": 30
+      },
+      "prior_auth_required": false,
+      "prior_auth_note": "",
+      "category": "nebulizer",
+      "keywords": [
+        "sterile water",
+        "saline",
+        "diluent",
+        "nebulizer"
+      ],
+      "source": "WA HCA via aws-samples README (extracted 2025-01-05)"
+    },
+    {
+      "code": "A4217",
+      "description": "Water, sterile, for irrigation",
+      "fee_nonrural": 3.36,
+      "fee_rural": 3.36,
+      "unit": "each",
+      "coverage": "Limited",
+      "limit": {
+        "quantity": 50,
+        "days": 30
+      },
+      "prior_auth_required": false,
+      "prior_auth_note": "",
+      "category": "nebulizer",
+      "keywords": [
+        "sterile water",
+        "irrigation",
+        "500 ml"
+      ],
+      "source": "WA HCA via aws-samples README (extracted 2025-01-05)"
+    },
+    {
+      "code": "E0570",
+      "description": "Nebulizer, with compressor",
+      "fee_nonrural": 62.1,
+      "fee_rural": 64.8,
+      "unit": "purchase",
+      "coverage": "Covered",
+      "limit": {
+        "quantity": 1,
+        "days": 1825
+      },
+      "prior_auth_required": false,
+      "prior_auth_note": "",
+      "category": "nebulizer",
+      "keywords": [
+        "nebulizer",
+        "compressor",
+        "machine",
+        "copd",
+        "asthma"
+      ],
+      "source": "synthetic-demo"
+    },
+    {
+      "code": "A7003",
+      "description": "Administration set, small volume nonfiltered pneumatic nebulizer, disposable",
+      "fee_nonrural": 2.95,
+      "fee_rural": 3.1,
+      "unit": "each",
+      "coverage": "Limited",
+      "limit": {
+        "quantity": 2,
+        "days": 30
+      },
+      "prior_auth_required": false,
+      "prior_auth_note": "",
+      "category": "nebulizer",
+      "keywords": [
+        "nebulizer kit",
+        "administration set",
+        "disposable"
+      ],
+      "source": "synthetic-demo"
+    },
+    {
+      "code": "A7005",
+      "description": "Administration set, small volume nonfiltered pneumatic nebulizer, non-disposable",
+      "fee_nonrural": 24.8,
+      "fee_rural": 25.9,
+      "unit": "each",
+      "coverage": "Limited",
+      "limit": {
+        "quantity": 1,
+        "days": 180
+      },
+      "prior_auth_required": false,
+      "prior_auth_note": "",
+      "category": "nebulizer",
+      "keywords": [
+        "nebulizer kit",
+        "reusable"
+      ],
+      "source": "synthetic-demo"
+    },
+    {
+      "code": "A7015",
+      "description": "Aerosol mask, used with DME nebulizer",
+      "fee_nonrural": 1.55,
+      "fee_rural": 1.6,
+      "unit": "each",
+      "coverage": "Limited",
+      "limit": {
+        "quantity": 2,
+        "days": 30
+      },
+      "prior_auth_required": false,
+      "prior_auth_note": "",
+      "category": "nebulizer",
+      "keywords": [
+        "aerosol mask",
+        "nebulizer mask"
+      ],
+      "source": "synthetic-demo"
+    },
+    {
+      "code": "E0565",
+      "description": "Compressor, air power source for equipment",
+      "fee_nonrural": 280.0,
+      "fee_rural": 292.0,
+      "unit": "purchase",
+      "coverage": "Covered",
+      "limit": {
+        "quantity": 1,
+        "days": 1825
+      },
+      "prior_auth_required": true,
+      "prior_auth_note": "Requires documentation that a standard nebulizer compressor is insufficient",
+      "category": "nebulizer",
+      "keywords": [
+        "compressor",
+        "air power"
+      ],
+      "source": "synthetic-demo"
+    },
+    {
+      "code": "A4627",
+      "description": "Spacer, bag or reservoir, for use with metered dose inhaler",
+      "fee_nonrural": 7.4,
+      "fee_rural": 7.7,
+      "unit": "each",
+      "coverage": "Limited",
+      "limit": {
+        "quantity": 2,
+        "days": 365
+      },
+      "prior_auth_required": false,
+      "prior_auth_note": "",
+      "category": "inhaler",
+      "keywords": [
+        "spacer",
+        "inhaler",
+        "mdi",
+        "chamber"
+      ],
+      "source": "synthetic-demo"
+    },
+    {
+      "code": "E1390",
+      "description": "Oxygen concentrator, single delivery port",
+      "fee_nonrural": 162.0,
+      "fee_rural": 169.0,
+      "unit": "monthly rental",
+      "coverage": "Covered",
+      "limit": {
+        "quantity": 1,
+        "days": 30
+      },
+      "prior_auth_required": true,
+      "prior_auth_note": "Requires qualifying oxygen saturation (SpO2) or blood gas result and physician order",
+      "category": "oxygen",
+      "keywords": [
+        "oxygen concentrator",
+        "home oxygen",
+        "copd",
+        "hypoxemia"
+      ],
+      "source": "synthetic-demo"
+    },
+    {
+      "code": "E1392",
+      "description": "Portable oxygen concentrator, rental",
+      "fee_nonrural": 48.0,
+      "fee_rural": 50.0,
+      "unit": "monthly rental",
+      "coverage": "Covered",
+      "limit": {
+        "quantity": 1,
+        "days": 30
+      },
+      "prior_auth_required": true,
+      "prior_auth_note": "Requires active home oxygen authorization and documented mobility need",
+      "category": "oxygen",
+      "keywords": [
+        "portable oxygen",
+        "concentrator",
+        "travel"
+      ],
+      "source": "synthetic-demo"
+    },
+    {
+      "code": "E0431",
+      "description": "Portable gaseous oxygen system, rental",
+      "fee_nonrural": 27.5,
+      "fee_rural": 28.7,
+      "unit": "monthly rental",
+      "coverage": "Covered",
+      "limit": {
+        "quantity": 1,
+        "days": 30
+      },
+      "prior_auth_required": true,
+      "prior_auth_note": "Requires active home oxygen authorization",
+      "category": "oxygen",
+      "keywords": [
+        "portable oxygen",
+        "tank",
+        "cylinder"
+      ],
+      "source": "synthetic-demo"
+    },
+    {
+      "code": "E0443",
+      "description": "Portable oxygen contents, gaseous",
+      "fee_nonrural": 18.2,
+      "fee_rural": 19.0,
+      "unit": "monthly",
+      "coverage": "Covered",
+      "limit": {
+        "quantity": 1,
+        "days": 30
+      },
+      "prior_auth_required": false,
+      "prior_auth_note": "",
+      "category": "oxygen",
+      "keywords": [
+        "oxygen contents",
+        "refill",
+        "tank"
+      ],
+      "source": "synthetic-demo"
+    },
+    {
+      "code": "A4615",
+      "description": "Cannula, nasal",
+      "fee_nonrural": 1.2,
+      "fee_rural": 1.25,
+      "unit": "each",
+      "coverage": "Limited",
+      "limit": {
+        "quantity": 4,
+        "days": 30
+      },
+      "prior_auth_required": false,
+      "prior_auth_note": "",
+      "category": "oxygen",
+      "keywords": [
+        "nasal cannula",
+        "oxygen tubing"
+      ],
+      "source": "synthetic-demo"
+    },
+    {
+      "code": "A4616",
+      "description": "Tubing (oxygen), per foot",
+      "fee_nonrural": 0.25,
+      "fee_rural": 0.26,
+      "unit": "per foot",
+      "coverage": "Limited",
+      "limit": {
+        "quantity": 50,
+        "days": 30
+      },
+      "prior_auth_required": false,
+      "prior_auth_note": "",
+      "category": "oxygen",
+      "keywords": [
+        "oxygen tubing"
+      ],
+      "source": "synthetic-demo"
+    },
+    {
+      "code": "A4608",
+      "description": "Transtracheal oxygen catheter, each",
+      "fee_nonrural": 38.0,
+      "fee_rural": 39.6,
+      "unit": "each",
+      "coverage": "Limited",
+      "limit": {
+        "quantity": 1,
+        "days": 30
+      },
+      "prior_auth_required": true,
+      "prior_auth_note": "Requires pulmonologist order",
+      "category": "oxygen",
+      "keywords": [
+        "transtracheal",
+        "catheter"
+      ],
+      "source": "synthetic-demo"
+    },
+    {
+      "code": "E0445",
+      "description": "Oximeter device for measuring blood oxygen levels noninvasively",
+      "fee_nonrural": 55.0,
+      "fee_rural": 57.4,
+      "unit": "purchase",
+      "coverage": "Limited",
+      "limit": {
+        "quantity": 1,
+        "days": 1825
+      },
+      "prior_auth_required": true,
+      "prior_auth_note": "Covered only with documented home oxygen titration need",
+      "category": "oxygen",
+      "keywords": [
+        "oximeter",
+        "pulse ox",
+        "spo2"
+      ],
+      "source": "synthetic-demo"
+    },
+    {
+      "code": "E0601",
+      "description": "Continuous positive airway pressure (CPAP) device",
+      "fee_nonrural": 76.0,
+      "fee_rural": 79.3,
+      "unit": "monthly rental",
+      "coverage": "Covered",
+      "limit": {
+        "quantity": 1,
+        "days": 30
+      },
+      "prior_auth_required": true,
+      "prior_auth_note": "Requires sleep study showing obstructive sleep apnea",
+      "category": "pap",
+      "keywords": [
+        "cpap",
+        "sleep apnea",
+        "osa"
+      ],
+      "source": "synthetic-demo"
+    },
+    {
+      "code": "E0470",
+      "description": "Respiratory assist device, bi-level pressure capability, without backup rate",
+      "fee_nonrural": 198.0,
+      "fee_rural": 206.5,
+      "unit": "monthly rental",
+      "coverage": "Covered",
+      "limit": {
+        "quantity": 1,
+        "days": 30
+      },
+      "prior_auth_required": true,
+      "prior_auth_note": "Requires documented CPAP failure or qualifying diagnosis",
+      "category": "pap",
+      "keywords": [
+        "bipap",
+        "bilevel",
+        "respiratory assist"
+      ],
+      "source": "synthetic-demo"
+    },
+    {
+      "code": "E0562",
+      "description": "Humidifier, heated, used with PAP device",
+      "fee_nonrural": 21.0,
+      "fee_rural": 21.9,
+      "unit": "monthly rental",
+      "coverage": "Covered",
+      "limit": {
+        "quantity": 1,
+        "days": 30
+      },
+      "prior_auth_required": false,
+      "prior_auth_note": "",
+      "category": "pap",
+      "keywords": [
+        "humidifier",
+        "heated humidifier",
+        "cpap"
+      ],
+      "source": "synthetic-demo"
+    },
+    {
+      "code": "A7030",
+      "description": "Full face mask used with positive airway pressure device",
+      "fee_nonrural": 88.0,
+      "fee_rural": 91.8,
+      "unit": "each",
+      "coverage": "Limited",
+      "limit": {
+        "quantity": 1,
+        "days": 90
+      },
+      "prior_auth_required": false,
+      "prior_auth_note": "",
+      "category": "pap",
+      "keywords": [
+        "full face mask",
+        "cpap mask"
+      ],
+      "source": "synthetic-demo"
+    },
+    {
+      "code": "A7034",
+      "description": "Nasal interface (mask or cannula type) used with PAP device",
+      "fee_nonrural": 54.0,
+      "fee_rural": 56.3,
+      "unit": "each",
+      "coverage": "Limited",
+      "limit": {
+        "quantity": 1,
+        "days": 90
+      },
+      "prior_auth_required": false,
+      "prior_auth_note": "",
+      "category": "pap",
+      "keywords": [
+        "nasal mask",
+        "nasal pillows",
+        "cpap mask"
+      ],
+      "source": "synthetic-demo"
+    },
+    {
+      "code": "A7035",
+      "description": "Headgear used with PAP device",
+      "fee_nonrural": 20.5,
+      "fee_rural": 21.4,
+      "unit": "each",
+      "coverage": "Limited",
+      "limit": {
+        "quantity": 1,
+        "days": 180
+      },
+      "prior_auth_required": false,
+      "prior_auth_note": "",
+      "category": "pap",
+      "keywords": [
+        "headgear",
+        "cpap"
+      ],
+      "source": "synthetic-demo"
+    },
+    {
+      "code": "A7037",
+      "description": "Tubing used with PAP device",
+      "fee_nonrural": 17.0,
+      "fee_rural": 17.7,
+      "unit": "each",
+      "coverage": "Limited",
+      "limit": {
+        "quantity": 1,
+        "days": 90
+      },
+      "prior_auth_required": false,
+      "prior_auth_note": "",
+      "category": "pap",
+      "keywords": [
+        "cpap tubing",
+        "hose"
+      ],
+      "source": "synthetic-demo"
+    },
+    {
+      "code": "A7038",
+      "description": "Filter, disposable, used with PAP device",
+      "fee_nonrural": 2.1,
+      "fee_rural": 2.2,
+      "unit": "each",
+      "coverage": "Limited",
+      "limit": {
+        "quantity": 2,
+        "days": 30
+      },
+      "prior_auth_required": false,
+      "prior_auth_note": "",
+      "category": "pap",
+      "keywords": [
+        "cpap filter",
+        "disposable filter"
+      ],
+      "source": "synthetic-demo"
+    },
+    {
+      "code": "A7046",
+      "description": "Water chamber for humidifier, used with PAP device, replacement",
+      "fee_nonrural": 14.5,
+      "fee_rural": 15.1,
+      "unit": "each",
+      "coverage": "Limited",
+      "limit": {
+        "quantity": 1,
+        "days": 180
+      },
+      "prior_auth_required": false,
+      "prior_auth_note": "",
+      "category": "pap",
+      "keywords": [
+        "water chamber",
+        "humidifier chamber"
+      ],
+      "source": "synthetic-demo"
+    },
+    {
+      "code": "E0600",
+      "description": "Respiratory suction pump, home model",
+      "fee_nonrural": 320.0,
+      "fee_rural": 333.7,
+      "unit": "purchase",
+      "coverage": "Covered",
+      "limit": {
+        "quantity": 1,
+        "days": 1825
+      },
+      "prior_auth_required": true,
+      "prior_auth_note": "Requires documented inability to clear secretions",
+      "category": "airway",
+      "keywords": [
+        "suction pump",
+        "secretions",
+        "suction machine"
+      ],
+      "source": "synthetic-demo"
+    },
+    {
+      "code": "A4624",
+      "description": "Tracheal suction catheter, any type other than closed system, each",
+      "fee_nonrural": 0.95,
+      "fee_rural": 0.99,
+      "unit": "each",
+      "coverage": "Limited",
+      "limit": {
+        "quantity": 90,
+        "days": 30
+      },
+      "prior_auth_required": false,
+      "prior_auth_note": "",
+      "category": "airway",
+      "keywords": [
+        "suction catheter",
+        "tracheal suction"
+      ],
+      "source": "synthetic-demo"
+    },
+    {
+      "code": "A7520",
+      "description": "Tracheostomy/laryngectomy tube, non-cuffed",
+      "fee_nonrural": 46.0,
+      "fee_rural": 48.0,
+      "unit": "each",
+      "coverage": "Limited",
+      "limit": {
+        "quantity": 1,
+        "days": 30
+      },
+      "prior_auth_required": false,
+      "prior_auth_note": "",
+      "category": "airway",
+      "keywords": [
+        "tracheostomy tube",
+        "trach"
+      ],
+      "source": "synthetic-demo"
+    },
+    {
+      "code": "E0482",
+      "description": "Cough stimulating device, alternating positive and negative airway pressure",
+      "fee_nonrural": 410.0,
+      "fee_rural": 427.6,
+      "unit": "monthly rental",
+      "coverage": "Covered",
+      "limit": {
+        "quantity": 1,
+        "days": 30
+      },
+      "prior_auth_required": true,
+      "prior_auth_note": "Requires neuromuscular diagnosis and documented ineffective cough",
+      "category": "airway",
+      "keywords": [
+        "cough assist",
+        "airway clearance",
+        "neuromuscular"
+      ],
+      "source": "synthetic-demo"
+    },
+    {
+      "code": "A4618",
+      "description": "Breathing circuits",
+      "fee_nonrural": 6.8,
+      "fee_rural": 7.1,
+      "unit": "each",
+      "coverage": "Limited",
+      "limit": {
+        "quantity": 2,
+        "days": 30
+      },
+      "prior_auth_required": false,
+      "prior_auth_note": "",
+      "category": "airway",
+      "keywords": [
+        "breathing circuit",
+        "ventilator circuit"
+      ],
+      "source": "synthetic-demo"
+    }
+  ]
+}

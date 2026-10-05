@@ -1,0 +1,122 @@
+{
+  "source": {
+    "title": "ACR Practice Parameter for Communication of Diagnostic Imaging Findings (summarized)",
+    "url": "https://www.acr.org/Clinical-Resources/Clinical-Tools-and-Reference/Practice-Parameters-and-Technical-Standards",
+    "note": "Checklist items summarize the report components the ACR practice parameter describes. Confirm against the current document."
+  },
+  "items": [
+    {
+      "id": "indication",
+      "label": "Clinical indication or history",
+      "required": true,
+      "patterns": [
+        "indication",
+        "history",
+        "clinical information",
+        "reason for exam",
+        "reason for study",
+        "symptoms?:"
+      ],
+      "guidance": "State the reason for the exam and relevant clinical history."
+    },
+    {
+      "id": "technique",
+      "label": "Procedure and technique",
+      "required": true,
+      "patterns": [
+        "technique",
+        "procedure",
+        "views?",
+        "pa and lateral",
+        "ap portable",
+        "frontal",
+        "contrast",
+        "protocol"
+      ],
+      "guidance": "Describe the examination performed, views or protocol, and contrast use."
+    },
+    {
+      "id": "comparison",
+      "label": "Comparison studies",
+      "required": true,
+      "patterns": [
+        "comparison",
+        "compared (with|to)",
+        "prior (study|exam|radiograph|ct)",
+        "no prior",
+        "none available"
+      ],
+      "guidance": "Name the prior studies compared, or state that none were available."
+    },
+    {
+      "id": "findings",
+      "label": "Findings",
+      "required": true,
+      "patterns": [
+        "findings"
+      ],
+      "guidance": "Describe the findings using standard anatomic terms."
+    },
+    {
+      "id": "impression",
+      "label": "Impression or conclusion",
+      "required": true,
+      "patterns": [
+        "impression",
+        "conclusion",
+        "summary"
+      ],
+      "guidance": "Give a concise impression with a specific diagnosis or differential when possible."
+    },
+    {
+      "id": "limitations",
+      "label": "Limitations",
+      "required": false,
+      "patterns": [
+        "limitation",
+        "limited by",
+        "suboptimal",
+        "motion",
+        "rotation",
+        "underpenetrat"
+      ],
+      "guidance": "Note factors that limit the study, when present."
+    },
+    {
+      "id": "recommendations",
+      "label": "Recommendations or follow-up",
+      "required": false,
+      "patterns": [
+        "recommend",
+        "follow-?up",
+        "suggest",
+        "correlat"
+      ],
+      "guidance": "Give follow-up or additional imaging recommendations when appropriate."
+    },
+    {
+      "id": "critical_communication",
+      "label": "Communication of critical findings",
+      "required": "conditional",
+      "trigger_patterns": [
+        "pneumothorax",
+        "tension",
+        "free air",
+        "pneumoperitoneum",
+        "aortic dissection",
+        "pulmonary embol",
+        "malposition",
+        "misplaced"
+      ],
+      "patterns": [
+        "discussed with",
+        "communicated",
+        "notified",
+        "called to",
+        "read back",
+        "telephone"
+      ],
+      "guidance": "Urgent or unexpected findings must be communicated directly to the ordering clinician and the communication documented (who, when, how)."
+    }
+  ]
+}

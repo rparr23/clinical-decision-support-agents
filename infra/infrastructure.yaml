@@ -1,0 +1,71 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >
+  ClearPath CDS: least-privilege execution role for the AgentCore Runtime. The S3 Vectors bucket and
+  indexes are created by infra/s3vectors_setup.py. No OpenSearch Serverless collection (PRD cost decision).
+
+Parameters:
+  VectorBucketName:
+    Type: String
+    Default: clearpath-cds-vectors
+  ModelId:
+    Type: String
+    Default: anthropic.claude-sonnet-4-5-20250929-v1:0
+
+Resources:
+  AgentCoreRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub "ClearPathCdsAgentCore-${AWS::Region}"
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal: { Service: bedrock-agentcore.amazonaws.com }
+            Action: sts:AssumeRole
+            Condition:
+              StringEquals: { "aws:SourceAccount": !Ref AWS::AccountId }
+      Policies:
+        - PolicyName: cds-runtime
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Sid: InvokeClaudeAndTitan
+                Effect: Allow
+                Action: [bedrock:InvokeModel, bedrock:InvokeModelWithResponseStream, bedrock:Converse, bedrock:ConverseStream]
+                Resource:
+                  - !Sub "arn:aws:bedrock:*::foundation-model/${ModelId}"
+                  - !Sub "arn:aws:bedrock:*:${AWS::AccountId}:inference-profile/us.${ModelId}"
+                  - !Sub "arn:aws:bedrock:${AWS::Region}::foundation-model/amazon.titan-embed-text-v2:0"
+              - Sid: QueryVectors
+                Effect: Allow
+                Action: [s3vectors:QueryVectors, s3vectors:GetVectors]
+                Resource:
+                  - !Sub "arn:aws:s3vectors:${AWS::Region}:${AWS::AccountId}:bucket/${VectorBucketName}"
+                  - !Sub "arn:aws:s3vectors:${AWS::Region}:${AWS::AccountId}:bucket/${VectorBucketName}/index/*"
+              - Sid: Logs
+                Effect: Allow
+                Action: [logs:CreateLogGroup, logs:CreateLogStream, logs:PutLogEvents, logs:DescribeLogStreams]
+                Resource: !Sub "arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/bedrock-agentcore/*"
+              - Sid: Tracing
+                Effect: Allow
+                Action: [xray:PutTraceSegments, xray:PutTelemetryRecords, cloudwatch:PutMetricData]
+                Resource: "*"
+              - Sid: PullImage
+                Effect: Allow
+                Action: [ecr:GetAuthorizationToken, ecr:BatchGetImage, ecr:GetDownloadUrlForLayer]
+                Resource: "*"
+
+  MonthlyBudget:
+    Type: AWS::Budgets::Budget
+    Properties:
+      Budget:
+        BudgetName: ClearPathCds-monthly
+        BudgetType: COST
+        TimeUnit: MONTHLY
+        BudgetLimit: { Amount: 100, Unit: USD }
+
+Outputs:
+  AgentCoreRoleArn:
+    Value: !GetAtt AgentCoreRole.Arn
+  VectorBucketName:
+    Value: !Ref VectorBucketName

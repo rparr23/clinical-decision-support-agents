@@ -1,0 +1,9 @@
+[project]
+name = "clearpath-cds"
+version = "0.1.0"
+description = "Multi-agent clinical decision support and guideline validation on Amazon Bedrock AgentCore (synthetic data)"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["e2e: browser tests that start the web server (need Playwright and Chromium)"]

@@ -1,0 +1,273 @@
+{
+  "source": {
+    "title": "ACR Appropriateness Criteria: Routine Chest Imaging",
+    "revised": "2022",
+    "publisher": "American College of Radiology",
+    "url": "https://acsearch.acr.org/list",
+    "note": "Variant tables transcribed from the ACR_Chest.pdf in aws-samples/sample-bedrock-agentcore-healthcare-s3vectors. Narrative passages are short paraphrases. Always confirm against the current ACR document."
+  },
+  "variants": [
+    {
+      "variant": 1,
+      "title": "Routine chest imaging for hospital admission. No clinical concern for cardiopulmonary disease. Initial Imaging.",
+      "procedures": [
+        {
+          "procedure": "Radiography chest",
+          "category": "Usually Not Appropriate",
+          "relative_radiation_level": "low (<0.1 mSv)"
+        },
+        {
+          "procedure": "MRI chest without and with IV contrast",
+          "category": "Usually Not Appropriate",
+          "relative_radiation_level": "none"
+        },
+        {
+          "procedure": "MRI chest without IV contrast",
+          "category": "Usually Not Appropriate",
+          "relative_radiation_level": "none"
+        },
+        {
+          "procedure": "CT chest with IV contrast",
+          "category": "Usually Not Appropriate",
+          "relative_radiation_level": "1-10 mSv"
+        },
+        {
+          "procedure": "CT chest without and with IV contrast",
+          "category": "Usually Not Appropriate",
+          "relative_radiation_level": "1-10 mSv"
+        },
+        {
+          "procedure": "CT chest without IV contrast",
+          "category": "Usually Not Appropriate",
+          "relative_radiation_level": "1-10 mSv"
+        },
+        {
+          "procedure": "CTA chest with IV contrast",
+          "category": "Usually Not Appropriate",
+          "relative_radiation_level": "1-10 mSv"
+        },
+        {
+          "procedure": "CTA chest without and with IV contrast",
+          "category": "Usually Not Appropriate",
+          "relative_radiation_level": "1-10 mSv"
+        },
+        {
+          "procedure": "FDG-PET/CT skull base to mid-thigh",
+          "category": "Usually Not Appropriate",
+          "relative_radiation_level": "10-30 mSv"
+        }
+      ],
+      "page": 1,
+      "summary": "Routine chest imaging on hospital admission is usually not appropriate in the absence of cardiopulmonary disease."
+    },
+    {
+      "variant": 2,
+      "title": "Routine preoperative chest imaging for noncardiothoracic surgery. No history of chronic cardiopulmonary disease or cardiothoracic surgery. Initial imaging.",
+      "procedures": [
+        {
+          "procedure": "Radiography chest",
+          "category": "Usually Not Appropriate",
+          "relative_radiation_level": "low (<0.1 mSv)"
+        },
+        {
+          "procedure": "MRI chest without and with IV contrast",
+          "category": "Usually Not Appropriate",
+          "relative_radiation_level": "none"
+        },
+        {
+          "procedure": "MRI chest without IV contrast",
+          "category": "Usually Not Appropriate",
+          "relative_radiation_level": "none"
+        },
+        {
+          "procedure": "CT chest with IV contrast",
+          "category": "Usually Not Appropriate",
+          "relative_radiation_level": "1-10 mSv"
+        },
+        {
+          "procedure": "CT chest without and with IV contrast",
+          "category": "Usually Not Appropriate",
+          "relative_radiation_level": "1-10 mSv"
+        },
+        {
+          "procedure": "CT chest without IV contrast",
+          "category": "Usually Not Appropriate",
+          "relative_radiation_level": "1-10 mSv"
+        },
+        {
+          "procedure": "CTA chest with IV contrast",
+          "category": "Usually Not Appropriate",
+          "relative_radiation_level": "1-10 mSv"
+        },
+        {
+          "procedure": "CTA chest without and with IV contrast",
+          "category": "Usually Not Appropriate",
+          "relative_radiation_level": "1-10 mSv"
+        },
+        {
+          "procedure": "FDG-PET/CT skull base to mid-thigh",
+          "category": "Usually Not Appropriate",
+          "relative_radiation_level": "10-30 mSv"
+        }
+      ],
+      "page": 1,
+      "summary": "Routine preoperative chest imaging is usually not appropriate in patients without cardiopulmonary disease undergoing noncardiothoracic surgery."
+    },
+    {
+      "variant": 3,
+      "title": "Routine preoperative chest imaging for noncardiothoracic surgery. History of chronic cardiopulmonary disease or cardiothoracic surgery. Initial imaging.",
+      "procedures": [
+        {
+          "procedure": "Radiography chest",
+          "category": "May Be Appropriate",
+          "relative_radiation_level": "low (<0.1 mSv)"
+        },
+        {
+          "procedure": "MRI chest without and with IV contrast",
+          "category": "Usually Not Appropriate",
+          "relative_radiation_level": "none"
+        },
+        {
+          "procedure": "MRI chest without IV contrast",
+          "category": "Usually Not Appropriate",
+          "relative_radiation_level": "none"
+        },
+        {
+          "procedure": "CT chest with IV contrast",
+          "category": "Usually Not Appropriate",
+          "relative_radiation_level": "1-10 mSv"
+        },
+        {
+          "procedure": "CT chest without and with IV contrast",
+          "category": "Usually Not Appropriate",
+          "relative_radiation_level": "1-10 mSv"
+        },
+        {
+          "procedure": "CT chest without IV contrast",
+          "category": "Usually Not Appropriate",
+          "relative_radiation_level": "1-10 mSv"
+        },
+        {
+          "procedure": "CTA chest with IV contrast",
+          "category": "Usually Not Appropriate",
+          "relative_radiation_level": "1-10 mSv"
+        },
+        {
+          "procedure": "CTA chest without and with IV contrast",
+          "category": "Usually Not Appropriate",
+          "relative_radiation_level": "1-10 mSv"
+        },
+        {
+          "procedure": "FDG-PET/CT skull base to mid-thigh",
+          "category": "Usually Not Appropriate",
+          "relative_radiation_level": "10-30 mSv"
+        }
+      ],
+      "page": 2,
+      "summary": "Radiography chest may be appropriate as initial imaging in the routine preoperative evaluation of patients with chronic cardiopulmonary disease undergoing noncardiothoracic surgery."
+    },
+    {
+      "variant": 4,
+      "title": "Routine chest imaging. History of chronic cardiopulmonary disease with stable clinical findings. Surveillance chest imaging.",
+      "procedures": [
+        {
+          "procedure": "Radiography chest",
+          "category": "May Be Appropriate",
+          "relative_radiation_level": "low (<0.1 mSv)"
+        },
+        {
+          "procedure": "CT chest without IV contrast",
+          "category": "May Be Appropriate",
+          "relative_radiation_level": "1-10 mSv"
+        },
+        {
+          "procedure": "MRI chest without and with IV contrast",
+          "category": "Usually Not Appropriate",
+          "relative_radiation_level": "none"
+        },
+        {
+          "procedure": "MRI chest without IV contrast",
+          "category": "Usually Not Appropriate",
+          "relative_radiation_level": "none"
+        },
+        {
+          "procedure": "CT chest with IV contrast",
+          "category": "Usually Not Appropriate",
+          "relative_radiation_level": "1-10 mSv"
+        },
+        {
+          "procedure": "CT chest without and with IV contrast",
+          "category": "Usually Not Appropriate",
+          "relative_radiation_level": "1-10 mSv"
+        },
+        {
+          "procedure": "CTA chest with IV contrast",
+          "category": "Usually Not Appropriate",
+          "relative_radiation_level": "1-10 mSv"
+        },
+        {
+          "procedure": "CTA chest without and with IV contrast",
+          "category": "Usually Not Appropriate",
+          "relative_radiation_level": "1-10 mSv"
+        },
+        {
+          "procedure": "FDG-PET/CT skull base to mid-thigh",
+          "category": "Usually Not Appropriate",
+          "relative_radiation_level": "10-30 mSv"
+        }
+      ],
+      "page": 2,
+      "summary": "Radiography chest and CT chest without IV contrast may be appropriate for surveillance chest imaging in the setting of chronic, stable cardiopulmonary disease."
+    }
+  ],
+  "passages": [
+    {
+      "id": "acr-chest-scope",
+      "page": 3,
+      "section": "Introduction/Background",
+      "text": "Routine chest imaging means imaging done to find unknown or subclinical disease. It does not include imaging in the setting of acute illness or for a specific clinical question, and it does not apply to lung cancer screening."
+    },
+    {
+      "id": "acr-chest-v1-radiography",
+      "page": 5,
+      "section": "Variant 1: Radiography chest",
+      "text": "Routine admission chest radiography gave minimal benefit in patients without respiratory symptoms and was linked to false-positive findings, unnecessary hospitalization and unnecessary antibiotics. It may be considered when the diagnosis is uncertain and the patient may present atypically, such as older or immunocompromised patients, or patients who cannot communicate symptoms."
+    },
+    {
+      "id": "acr-chest-v1-ct",
+      "page": 4,
+      "section": "Variant 1: CT chest",
+      "text": "There is no relevant literature supporting CT, CTA, MRI or FDG-PET/CT of the chest as routine imaging on hospital admission without cardiopulmonary disease."
+    },
+    {
+      "id": "acr-chest-v2-radiography",
+      "page": 6,
+      "section": "Variant 2: Radiography chest",
+      "text": "Guidelines largely advise against routine preoperative chest radiographs for elective surgery. Diagnostic yield is low in patients under 50, unsuspected findings occur in about 1.3% of cases and change management in about 0.1%."
+    },
+    {
+      "id": "acr-chest-transplant",
+      "page": 6,
+      "section": "Variants 2 and 3: transplant candidates",
+      "text": "Patients evaluated for abdominal solid organ transplant (for example liver or kidney) have higher rates of intrathoracic disease that may not be clinically apparent. Chest radiography or CT may be pursued to exclude other causes of pulmonary disease after pulse oximetry screening."
+    },
+    {
+      "id": "acr-chest-v3-radiography",
+      "page": 7,
+      "section": "Variant 3: Radiography chest",
+      "text": "Abnormal radiographs are common in known cardiothoracic disease but rarely change perioperative management. Radiography may help in patients with known chronic disease or over 50, and in patients with cardiac implantable electronic devices to identify device type and location."
+    },
+    {
+      "id": "acr-chest-v4-surveillance",
+      "page": 8,
+      "section": "Variant 4: Surveillance",
+      "text": "Evidence on broad surveillance imaging for unspecified chronic, stable cardiopulmonary disease is limited. For chronic diffuse lung disease, expert panels found CT chest without IV contrast usually appropriate for routine follow-up."
+    },
+    {
+      "id": "acr-chest-categories",
+      "page": 9,
+      "section": "Appropriateness category definitions",
+      "text": "Usually Appropriate (rating 7 to 9): indicated at a favorable risk-benefit ratio. May Be Appropriate (4 to 6): may be indicated as an alternative, or the risk-benefit ratio is equivocal. Usually Not Appropriate (1 to 3): unlikely to be indicated or the risk-benefit ratio is likely unfavorable."
+    }
+  ]
+}

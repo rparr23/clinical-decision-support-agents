@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ClearPath CDS</title>
+  <meta name="description" content="Multi-agent clinical decision support and guideline validation on synthetic data.">
+  <link rel="icon" href="/static/brand/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="backdrop" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <img src="/static/brand/logo.svg" alt="" width="40" height="40">
+      <div>
+        <div class="brand-name" id="brand-name">ClearPath CDS</div>
+        <div class="brand-tag">Multi-Agent Clinical Decision Support &amp; Guideline Validation</div>
+      </div>
+    </div>
+    <div class="pills">
+      <span class="pill pill-warn" title="All patient records are synthetic">Synthetic data only</span>
+      <span class="pill" id="mode-pill">Offline demo</span>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Check the order against the guideline <span>before it's placed.</span></h1>
+    <p>A supervisor agent routes each question to specialist agents for ACR imaging criteria, similar patients and
+      respiratory billing rules, then returns one answer with every source cited.</p>
+    <div class="stats" id="stats">
+      <div class="stat"><b>4</b><span>ACR chest imaging variants</span></div>
+      <div class="stat"><b id="stat-patients">120</b><span>synthetic FHIR patients</span></div>
+      <div class="stat"><b id="stat-codes">30</b><span>respiratory billing codes</span></div>
+      <div class="stat"><b>3</b><span>specialist agents</span></div>
+    </div>
+  </section>
+
+  <main class="layout">
+    <section class="panel main-panel">
+      <nav class="tabs" role="tablist">
+        <button role="tab" class="tab active" data-tab="ask" aria-selected="true">Ask</button>
+        <button role="tab" class="tab" data-tab="order" aria-selected="false">Check an order</button>
+        <button role="tab" class="tab" data-tab="report" aria-selected="false">Validate a report</button>
+        <button role="tab" class="tab" data-tab="eval" aria-selected="false">Evaluation</button>
+      </nav>
+
+      <!-- Ask -->
+      <div class="tab-body" id="tab-ask">
+        <div class="conversation" id="conversation">
+          <div class="empty" id="empty-state">
+            <h2>What do you need to check?</h2>
+            <p>Try one of these, or ask your own question.</p>
+            <div class="examples" id="examples"></div>
+          </div>
+        </div>
+        <form class="composer" id="ask-form">
+          <textarea id="question" rows="2" placeholder="Ask about imaging appropriateness, similar patients, codes, fees or prior authorization…" aria-label="Question"></textarea>
+          <button type="submit" class="btn primary" id="ask-btn">Ask</button>
+        </form>
+      </div>
+
+      <!-- Order check -->
+      <div class="tab-body hidden" id="tab-order">
+        <div class="grid-2">
+          <div>
+            <label class="field">Synthetic patient
+              <select id="patient-select" aria-label="Patient"></select>
+            </label>
+            <div class="chart-card" id="chart-card"></div>
+          </div>
+          <form id="order-form">
+            <label class="field">Planned order
+              <input id="order-input" value="Chest x-ray PA and lateral" aria-label="Planned order">
+            </label>
+            <div class="chips" id="order-chips"></div>
+            <label class="field">Setting
+              <select id="setting-select" aria-label="Setting">
+                <option value="">Use the chart's encounter</option>
+                <option value="admission">Hospital admission</option>
+                <option value="preop">Preoperative, noncardiothoracic surgery</option>
+                <option value="followup">Outpatient follow-up</option>
+              </select>
+            </label>
+            <button class="btn primary" type="submit" id="order-btn">Check order</button>
+          </form>
+        </div>
+        <div id="order-result"></div>
+      </div>
+
+      <!-- Report validation -->
+      <div class="tab-body hidden" id="tab-report">
+        <div class="chips" id="report-samples"></div>
+        <textarea id="report-text" rows="9" aria-label="Radiology report" placeholder="Paste a synthetic radiology report…"></textarea>
+        <button class="btn primary" id="report-btn">Validate report</button>
+        <div id="report-result"></div>
+      </div>
+
+      <!-- Evaluation -->
+      <div class="tab-body hidden" id="tab-eval">
+        <p class="muted">Runs the 50-question gold set from the PRD and compares each metric with its target.</p>
+        <button class="btn primary" id="eval-btn">Run evaluation</button>
+        <div id="eval-result"></div>
+      </div>
+    </section>
+
+    <aside class="panel side-panel">
+      <h3>Agent trace</h3>
+      <p class="muted small" id="trace-hint">Agent and tool calls for the latest answer appear here.</p>
+      <ol class="trace" id="trace"></ol>
+      <h3>Sources</h3>
+      <ol class="sources" id="sources"></ol>
+    </aside>
+  </main>
+
+  <footer class="footer" id="disclaimer">Decision support only, not medical advice. All patient records are synthetic.</footer>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

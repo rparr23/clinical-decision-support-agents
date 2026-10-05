@@ -1,0 +1,6 @@
+# Bedrock and AgentCore modes
+-r requirements.txt
+boto3>=1.40
+strands-agents>=1.10
+bedrock-agentcore>=0.1.5
+bedrock-agentcore-starter-toolkit>=0.1.10
